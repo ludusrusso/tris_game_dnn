@@ -35,14 +35,14 @@ class TrisTable(object):
                     self.draw_tris_x((i,j))
 
     def draw_cicle(self, pos):
-        self.draw_simble(1, pos)
+        self.draw_simbol(1, pos)
 
     def draw_x(self, pos):
-        self.draw_simble(-1, pos)
+        self.draw_simbol(-1, pos)
 
-    def draw_simble(self, simbol, pos):
+    def draw_simbol(self, simbol, pos):
         i,j = pos
-        self.table[i][j] = simble
+        self.table[i][j] = simbol
         self.draw_table()
 
     def draw_tris_circle(self, pos):
@@ -63,7 +63,7 @@ class TrisTable(object):
 tris_table = TrisTable()
 
 current_pos = [0,0]
-simble = 1
+simbol = 1
 
 while not done:
     for event in pygame.event.get():
@@ -77,8 +77,8 @@ while not done:
             if event.key == pygame.K_DOWN:
                 current_pos[1] = (current_pos[1] + 1) % 3
             if event.key == pygame.K_RETURN:
-                tris_table.draw_simble(simble, current_pos)
-                simble *= -1
+                tris_table.draw_simbol(simbol, current_pos)
+                simbol *= -1
             tris_table.draw_tris_cursor(current_pos)
         if event.type == pygame.QUIT:
                 done = True        
